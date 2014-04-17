@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <ul>
+    {% for transaction in object_list %}
+        <li>{{ transaction.total }} - {{ transaction.date|date:'Y-m-d' }}, {{ transaction.description }}</li>
+        <ol>
+        {% for product in transaction.products.all %}
+            <li>[{{ product.category }}]{{ product.price }} - {{ product.description }}</li>
+        {% endfor %}
+        </ol>
+    {% endfor %}
+    </ul>
+
+</body>
+</html>

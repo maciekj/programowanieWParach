@@ -14,7 +14,7 @@ class Transaction(models.Model):
 class Product(models.Model):
     description = models.TextField(default='')
     price = models.DecimalField(decimal_places=2, max_digits=10)
-    transaction = models.ForeignKey("Transaction")
+    transaction = models.ForeignKey("Transaction", related_name="products")
     category = models.ForeignKey("Category")
 
     def __unicode__(self):
